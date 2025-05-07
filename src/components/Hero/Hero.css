@@ -1,0 +1,112 @@
+/* Hero Section Styles */
+.hero {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-image: url('https://placehold.co/1200x800/222/fff?text=Gordon+Ramsay');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  animation: fadeIn var(--transition-slow);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  transition: background-color var(--transition-medium);
+}
+
+.hero:hover .hero-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+  animation: scaleIn var(--transition-medium);
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color); /* Gordon Ramsay's signature gold color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: slideInFromLeft var(--transition-medium);
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  animation: slideInFromRight var(--transition-medium);
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: fadeIn var(--transition-medium);
+  animation-delay: 0.7s;
+  animation-fill-mode: both;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button:hover {
+  background-color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: transform var(--transition-fast);
+  transform: skewX(-15deg);
+}
+
+.cta-button:hover::after {
+  transform: skewX(-15deg) translateX(200%);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
